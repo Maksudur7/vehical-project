@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { vehicleController } from "./vehicles.controller";
-import jwtAuth from "../../../../middleware/jwtAuth";
 import adminAccess from "../../../../middleware/adminAccess";
+import jwtAuth from "../../../../middleware/jwtAuth";
 
 const route = Router()
 route.post("/vehicles", jwtAuth , adminAccess,  vehicleController.postVehicles)

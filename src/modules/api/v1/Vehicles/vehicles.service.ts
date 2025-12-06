@@ -27,6 +27,14 @@ const updatevehicles = async (payload: Record<string, unknown>, id: string) => {
     return result
 }
 
+const updateVehiclesByBookint = async (availability_status: string, vehicleId: string) => {
+    const result = await pool.query(
+        `UPDATE vehicles SET availability_status = $1 WHERE id = $2`,
+        [availability_status, vehicleId]
+    )
+    return result
+}
+
 const deletVehicles = async (id: string) => {
     const result = await pool.query(`DELETE FROM vehicles WHERE id =$1`, [id])
     return result
@@ -35,8 +43,9 @@ const deletVehicles = async (id: string) => {
 export const vehicleSearvices = {
 
     postVehicles,
-    getVehicles, 
+    getVehicles,
     getSingleVehicles,
     updatevehicles,
-    deletVehicles
+    deletVehicles,
+    updateVehiclesByBookint
 }

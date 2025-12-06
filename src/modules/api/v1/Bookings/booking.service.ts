@@ -41,6 +41,11 @@ const getBooking = async () => {
     const result = await pool.query(`SELECT * FROM bookings `)
     return result
 }
+
+const getUserBooking = async()=>{
+    const result = await pool.query(`SELECT * FROM bookings WHERE customer_id = req.query.userId`)
+    return result;
+}
 const updateBooking = async (status: string, id: string) => {
     const result = await pool.query(`UPDATE bookings SET status=$1 WHERE id=$2 RETURNING *`, [status, id])
     return result
@@ -49,5 +54,6 @@ const updateBooking = async (status: string, id: string) => {
 export const bookingServer = {
     postBooking,
     getBooking,
-    updateBooking
+    updateBooking,
+    getUserBooking
 }
