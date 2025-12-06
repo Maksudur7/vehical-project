@@ -43,7 +43,7 @@ const initDB = async () => {
             rent_start_date DATE NOT NULL,
             rent_end_date DATE NOT NULL,
             total_price DECIMAL(10,2) NOT NULL,
-            status VARCHAR(100) DEFAULT 'active',
+            status VARCHAR(100) NOT NULL DEFAULT 'active',
             CHECK (rent_end_date > rent_start_date),
             CHECK (total_price > 0),
             CHECK(status IN('active', 'cancelled', 'returned'))

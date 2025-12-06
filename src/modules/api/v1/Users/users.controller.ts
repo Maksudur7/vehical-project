@@ -18,7 +18,7 @@ const getUser = async (req: Request, res: Response) => {
 }
 const updateUser = async (req: Request, res: Response) => {
     try {
-        const result = await userService.updateUser(req.body)
+        const result = await userService.updateUser(req.body, req.params.userId!)
         res.status(201).json({
             success: true,
             message: "Usears are updated",
@@ -33,10 +33,10 @@ const updateUser = async (req: Request, res: Response) => {
 }
 const deletUser = async (req: Request, res: Response) => {
     try {
-        const result = await userService.deletUser(req.params.id!)
+        const result = await userService.deletUser( req.params.userId!)
         res.status(201).json({
             success: true,
-            message: "All usears are show",
+            message: "User delet successfully",
             data: result
         })
     } catch (err: any) {

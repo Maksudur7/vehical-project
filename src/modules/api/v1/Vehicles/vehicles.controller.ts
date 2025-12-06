@@ -41,11 +41,11 @@ const getVehicles = async (req: Request, res: Response) => {
 const getSingleVehicles = async (req: Request, res: Response) => {
 
     try {
-        const result = await vehicleSearvices.getSingleVehicles(req.params.id!)
+        const result = await vehicleSearvices.getSingleVehicles(req.params.vehicleId!)
         res.status(201).json({
             success: true,
-            message: "All Vehicles are show",
-            data: result
+            message: "single vehicles are ready",
+            data: result.rows
         })
     } catch (err: any) {
         res.status(500).json({
@@ -55,12 +55,11 @@ const getSingleVehicles = async (req: Request, res: Response) => {
     }
 }
 const updatevehicles = async (req: Request, res: Response) => {
-
     try {
-        const result = await vehicleSearvices.updatevehicles( req.body)
+        const result = await vehicleSearvices.updatevehicles(req.body, req.params.vehicleId!)
         res.status(201).json({
             success: true,
-            message: "All Vehicles are show",
+            message: "vehicles are updated",
             data: result
         })
     } catch (err: any) {
@@ -71,12 +70,12 @@ const updatevehicles = async (req: Request, res: Response) => {
     }
 }
 const deletVehicles = async (req: Request, res: Response) => {
-
+    console.log(req.params.vehicleId);
     try {
-        const result = await vehicleSearvices.deletVehicles(req.params.id!)
+        const result = await vehicleSearvices.deletVehicles(req.params.vehicleId!)
         res.status(201).json({
             success: true,
-            message: "All Vehicles are show",
+            message: "Deleted this vehicle",
             data: result
         })
     } catch (err: any) {
