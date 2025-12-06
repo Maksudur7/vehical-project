@@ -4,11 +4,11 @@ import jwt from "jsonwebtoken"
 import config from "../../../../config";
 
 // create a user 
-const regster = async (name: string, email: any, password: string, phone: string) => {
+const regster = async (name: string, email: any, password: string, phone: string, role: string) => {
 
     //adding password hasing and created user 
     const hashPassword = bcrypt.hashSync(password, 10)
-    const result = await pool.query(`INSERT INTO users(name, email, password, phone) VALUES($1, $2, $3, $4) RETURNING *`, [name, email, hashPassword, phone])
+    const result = await pool.query(`INSERT INTO users(name, email, password, phone, role) VALUES($1, $2, $3, $4,$5) RETURNING *`, [name, email, hashPassword, phone, role])
     return result
 }
 

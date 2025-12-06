@@ -70,7 +70,6 @@ const updatevehicles = async (req: Request, res: Response) => {
     }
 }
 const deletVehicles = async (req: Request, res: Response) => {
-    console.log(req.params.vehicleId);
     try {
         const result = await vehicleSearvices.deletVehicles(req.params.vehicleId!)
         res.status(201).json({

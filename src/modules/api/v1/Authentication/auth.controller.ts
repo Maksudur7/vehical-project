@@ -2,9 +2,9 @@ import { Request, Response } from "express";
 import { authService } from "./auth.service";
 
 const regster = async (req: Request, res: Response) => {
-    const { name, email, password, phone } = req.body;
+    const { name, email, password, phone , role} = req.body;
     try {
-        const result = await authService.regster(name, email, password, phone)
+        const result = await authService.regster(name, email, password, phone ,role)
         res.status(201).json({
             success: true,
             message: "Regster Successfull",
