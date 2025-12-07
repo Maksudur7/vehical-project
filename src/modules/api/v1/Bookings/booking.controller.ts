@@ -28,7 +28,7 @@ const postBooking = async (req: Request, res: Response) => {
         res.status(201).json({
             success: true,
             message: "Booking Compleated",
-            data: result
+            data: result.rows[0]
         })
         if (result) {
             if (status === 'returned' || status === 'cancelled') {
@@ -53,7 +53,7 @@ const getBooking = async (req: Request, res: Response) => {
             res.status(201).json({
                 success: true,
                 message: "All bookings are show",
-                data: result
+                data: result.rows[0]
             })
         } catch (err: any) {
             res.status(500).json({
@@ -68,7 +68,7 @@ const getBooking = async (req: Request, res: Response) => {
             res.status(201).json({
                 success: true,
                 message: "All bookings are show",
-                data: result
+                data: result.rows[0]
             })
         } catch (err: any) {
             res.status(500).json({
@@ -88,7 +88,7 @@ const updateBooking = async (req: Request, res: Response) => {
         res.status(201).json({
             success: true,
             message: "Booking updated",
-            data: result
+            data: result.rows[0]
         })
     } catch (err: any) {
         res.status(500).json({

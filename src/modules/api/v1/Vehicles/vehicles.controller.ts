@@ -12,7 +12,7 @@ const postVehicles = async (req: Request, res: Response) => {
         res.status(201).json({
             success: true,
             message: "Vehicle Insearted Successfull",
-            data: result
+            data: result.rows[0]
         })
     } catch (err: any) {
         res.status(500).json({
@@ -28,7 +28,7 @@ const getVehicles = async (req: Request, res: Response) => {
         res.status(201).json({
             success: true,
             message: "All Vehicles are show",
-            data: result
+            data: result.rows[0]
         })
     } catch (err: any) {
         res.status(500).json({
@@ -45,7 +45,7 @@ const getSingleVehicles = async (req: Request, res: Response) => {
         res.status(201).json({
             success: true,
             message: "single vehicles are ready",
-            data: result.rows
+            data: result.rows[0]
         })
     } catch (err: any) {
         res.status(500).json({
@@ -60,7 +60,7 @@ const updatevehicles = async (req: Request, res: Response) => {
         res.status(201).json({
             success: true,
             message: "vehicles are updated",
-            data: result
+            data: result.rows[0]
         })
     } catch (err: any) {
         res.status(500).json({
@@ -75,7 +75,7 @@ const deletVehicles = async (req: Request, res: Response) => {
         res.status(201).json({
             success: true,
             message: "Deleted this vehicle",
-            data: result
+            data: result.rows[0]
         })
     } catch (err: any) {
         res.status(500).json({

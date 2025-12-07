@@ -8,7 +8,7 @@ const regster = async (req: Request, res: Response) => {
         res.status(201).json({
             success: true,
             message: "Regster Successfull",
-            data : result
+            data : result.rows[0]
         })
     } catch (err: any) {
         res.status(500).json({

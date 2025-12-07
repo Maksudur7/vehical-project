@@ -7,7 +7,7 @@ const getUser = async (req: Request, res: Response) => {
         res.status(201).json({
             success: true,
             message: "All usears are show",
-            data: result
+            data: result.rows[0]
         })
     } catch (err: any) {
         res.status(500).json({
@@ -22,7 +22,7 @@ const updateUser = async (req: Request, res: Response) => {
         res.status(201).json({
             success: true,
             message: "Usears are updated",
-            data: result
+            data: result.rows[0]
         })
     } catch (err: any) {
         res.status(500).json({
@@ -37,7 +37,7 @@ const deletUser = async (req: Request, res: Response) => {
         res.status(201).json({
             success: true,
             message: "User delet successfully",
-            data: result
+            data: result.rows[0]
         })
     } catch (err: any) {
         res.status(500).json({

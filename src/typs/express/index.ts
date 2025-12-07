@@ -1,4 +1,4 @@
-import { express } from 'express';
+import  express  from 'express';
 import { Request } from 'express';
 import { JwtPayload } from 'jsonwebtoken';
 declare global{
